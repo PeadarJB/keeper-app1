@@ -7,29 +7,36 @@ function CreateArea(props) {
         content:""
     });
 
-    const [noteContent, setNewContent] = useState("");
-    const [noteTitle, setNewTitle] = useState("");
 
-    function handleTitle(event){
-        const newValue = event.target.value;
-        setNewTitle(newValue);
+
+    function handleChange(event){
+        const {name, value} = event.target;
+
+        setNote(prevNote => {
+            return {
+                ...prevNote,
+                [name]: value
+            }
+        });
     }
 
-    function handleContent(event){
-        const newValue = event.target.value;
-        setNewContent(newValue);
+    function onClick(event){
+        props.onAdd(note);
+        setNote({
+            title: "",
+            content: ""
+        });
+        event.preventDefault();
     }
 
-    function addNote(){
 
-    }
 
   return (
     <div>
       <form>
-        <input onChange={handleTitle} value={note.title} name="title" placeholder="Title" />
-        <textarea onChange={handleContent} name="content" value={note.content} placeholder="Take a note..." rows="3" />
-        <button onClick={addNote}>Add</button>
+        <input onChange={handleChange} value={note.title} name="title" placeholder="Title" />
+        <textarea onChange={handleChange} name="content" value={note.content} placeholder="Take a note..." rows="3" />
+        <button onClick={onClick}>Add</button>
       </form>
     </div>
   );
