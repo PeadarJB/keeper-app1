@@ -1,6 +1,6 @@
 import React from "react";
-// import ReactDOM from "react-dom/client";
-// import App from "./App";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+
 
 export default function Note(props) {
 
@@ -12,7 +12,7 @@ export default function Note(props) {
         <div className="note">
             <h1>{props.title}</h1>
             <p>{props.content}</p>
-            <button onClick={handleDelete}>DELETE</button>
+            <button onClick={handleDelete}><DeleteForeverIcon/></button>
         </div>
     );
 }

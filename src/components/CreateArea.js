@@ -1,4 +1,7 @@
 import React, {useState} from "react";
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import {Fab} from "@mui/material";
+
 
 function CreateArea(props) {
 
@@ -33,10 +36,10 @@ function CreateArea(props) {
 
   return (
     <div>
-      <form>
+      <form className="create-note">
         <input onChange={handleChange} value={note.title} name="title" placeholder="Title" />
         <textarea onChange={handleChange} name="content" value={note.content} placeholder="Take a note..." rows="3" />
-        <button onClick={onClick}>Add</button>
+        <Fab  onClick={onClick}><AddCircleOutlineIcon/></Fab>
       </form>
     </div>
   );
